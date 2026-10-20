@@ -51,14 +51,15 @@ button:hover {
     background-color: #8c1216;
 }
 
-#r {
+#promedioResultado {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
     color: #333333;
 }
 
-#r2 {
+#estadoResultado {
     font-size: 15px;
     color: #666666;
 }
+
