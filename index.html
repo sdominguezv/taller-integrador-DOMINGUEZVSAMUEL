@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de notas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="cont1">
+        <h1>Calculadora de Promedio</h1>
+        <p>Ingrese las tres notas del corte para calcular el promedio.</p>
+
+        <label for="nota1">Nota 1:</label>
+        <input type="number" id="nota1" step="0.1">
+
+        <label for="nota2">Nota 2:</label>
+        <input type="number" id="nota2" step="0.1">
+
+        <label for="nota3">Nota 3:</label>
+        <input type="number" id="nota3" step="0.1">
+
+        <button onclick="calcularPromedio()">Calcular</button>
+
+        <p id="promedioResultado"></p>
+        <p id="estadoResultado"></p>
+    </div>
+
+    <script>
+        const cantidadNotas = 3;
+
+        function calcularPromedio() {
+            const notaUno = parseFloat(document.getElementById("nota1").value);
+            const notaDos = parseFloat(document.getElementById("nota2").value);
+            const notaTres = parseFloat(document.getElementById("nota3").value);
+
+            console.log("Valores capturados:", notaUno, notaDos, notaTres);
+
+            if (isNaN(notaUno) || isNaN(notaDos) || isNaN(notaTres)) {
+                document.getElementById("promedioResultado").textContent =
+                    "Debe ingresar las tres notas.";
+                document.getElementById("estadoResultado").textContent = "";
+                return;
+            }
+
+            const promedio = (notaUno + notaDos + notaTres) / cantidadNotas;
+
+            document.getElementById("promedioResultado").textContent =
+                "Promedio: " + promedio.toFixed(2);
+
+            if (promedio >= 3.0) {
+                document.getElementById("estadoResultado").textContent =
+                    "Resultado: aprobado";
+            } else {
+                document.getElementById("estadoResultado").textContent =
+                    "Resultado: reprobado";
+            }
+
+            console.log("Promedio calculado");
+        }
+
+        console.log("Página cargada");
+    </script>
+
+</body>
+</html>
+
